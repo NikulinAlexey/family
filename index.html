@@ -1,203 +1,73 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="ru">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width,initial-scale=1" />
-    <title>Задания</title>
-    <link rel="stylesheet" href="style.css" />
-  </head>
-  <body class="layout">
-    <header class="header">
-      <div class="header__container container">
-        <h1 class="header__title">Задания</h1>
-        <div class="header__actions">
-          <button class="header__action button" id="history" type="button">
-            <svg
-              class="icon"
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 24 24"
-              fill="none"
-              aria-hidden="true"
-            >
-              <path
-                fill-rule="evenodd"
-                clip-rule="evenodd"
-                d="M5.01112 11.5747L6.29288 10.2929C6.68341 9.90236 7.31657 9.90236 7.7071 10.2929C8.09762 10.6834 8.09762 11.3166 7.7071 11.7071L4.7071 14.7071C4.51956 14.8946 4.26521 15 3.99999 15C3.73477 15 3.48042 14.8946 3.29288 14.7071L0.292884 11.7071C-0.0976406 11.3166 -0.0976406 10.6834 0.292884 10.2929C0.683408 9.90236 1.31657 9.90236 1.7071 10.2929L3.0081 11.5939C3.22117 6.25933 7.61317 2 13 2C18.5229 2 23 6.47715 23 12C23 17.5228 18.5229 22 13 22C9.85817 22 7.05429 20.5499 5.22263 18.2864C4.87522 17.8571 4.94163 17.2274 5.37096 16.88C5.80028 16.5326 6.42996 16.599 6.77737 17.0283C8.24562 18.8427 10.487 20 13 20C17.4183 20 21 16.4183 21 12C21 7.58172 17.4183 4 13 4C8.72441 4 5.23221 7.35412 5.01112 11.5747ZM13 5C13.5523 5 14 5.44772 14 6V11.5858L16.7071 14.2929C17.0976 14.6834 17.0976 15.3166 16.7071 15.7071C16.3166 16.0976 15.6836 16.0976 15.2929 15.7071L12.2929 12.7071C12.1054 12.5196 12 12.2652 12 12V6C12 5.44772 12.4477 5 13 5Z"
-                fill="currentColor"
-              />
-            </svg>
-            <span class="button__text">История</span>
-          </button>
-          <button class="header__action button" id="periodic" type="button">
-            <span class="button__icon icon" aria-hidden="true">↻</span>
-            <span class="button__text">Периодические</span>
-          </button>
-        </div>
-      </div>
-    </header>
-    <main class="layout__main">
-      <div class="container">
-        <div class="content">
-          <div id="loading" class="loading" aria-live="polite">
-            <span class="spinner"></span><span>Загрузка</span>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Задания</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body class="layout">
+<aside class="sidebar">
+  <div class="sidebar__brand" aria-hidden="true">
+    <span class="sidebar-line sidebar-line--1"></span>
+    <span class="sidebar-line sidebar-line--2"></span>
+    <span class="sidebar-line sidebar-line--3"></span>
+    <span class="sidebar-dot sidebar-dot--1"></span>
+    <span class="sidebar-dot sidebar-dot--2"></span>
+  </div>
+
+  <nav class="sidebar__nav" aria-label="Разделы">
+    <button class="sidebar-link" id="periodic" type="button">
+      <span class="sidebar-link__icon">↻</span><span>Периодические</span>
+    </button>
+    <button class="sidebar-link" id="history" type="button">
+      <span class="sidebar-link__icon">◷</span><span>История</span>
+    </button>
+  </nav>
+
+</aside>
+
+<div class="page">
+  <header class="header">
+    <div class="container header__inner">
+      <div>
+        <h1>Задания</h1>
           </div>
-          <div class="list" id="list"></div>
-          <p id="empty" class="empty hidden">Заданий пока нет 🙁</p>
-        </div>
-        <div class="actions">
-          <button
-            id="add"
-            class="actions__button button button--wide"
-            type="button"
-          >
-            ＋ Добавить задание
-          </button>
-        </div>
-      </div>
-    </main>
+    </div>
+  </header>
+  <main class="layout__main"><div class="container">
+    <div id="loading" class="loading" aria-live="polite"><span class="spinner"></span><span>Загрузка</span></div>
+    <div id="list"></div>
+    <p id="empty" class="empty hidden">Заданий пока нет</p>
+    <button id="add" class="add" type="button"><span class="add__plus">＋</span> Добавить задание</button>
+  </div></main>
+</div>
+<footer class="footer"></footer>
 
-    <div id="modal" class="modal hidden">
-      <div class="modal__body">
-        <div class="modal__top">
-          <h2 id="title">Новое задание</h2>
-          <button class="button " id="cancel" type="button">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              class="icon"
-              viewBox="0 0 1024 1024"
-            >
-              <path
-                fill="#000000"
-                d="M195.2 195.2a64 64 0 0 1 90.496 0L512 421.504 738.304 195.2a64 64 0 0 1 90.496 90.496L602.496 512 828.8 738.304a64 64 0 0 1-90.496 90.496L512 602.496 285.696 828.8a64 64 0 0 1-90.496-90.496L421.504 512 195.2 285.696a64 64 0 0 1 0-90.496z"
-              />
-            </svg>
-          </button>
-        </div>
-        <div class="modal__content">
-          <label>Задание<textarea id="text" rows="3"></textarea></label>
-          <label
-            >Повторение<select id="repeat">
-              <option value="">Не повторять</option>
-              <option value="days">Через N дней после выполнения</option>
-            </select></label
-          >
-          <label id="daysBox" class="hidden"
-            >Количество дней<input id="days" type="number" min="1" value="7"
-          /></label>
-          <fieldset class="urgency">
-            <legend>Срочность</legend>
-            <label class="radio-option"
-              ><input
-                id="urgencyNotUrgent"
-                type="radio"
-                name="urgency"
-                value="not_urgent"
-                checked
-              /><span>Не срочно</span></label
-            >
-            <label class="radio-option"
-              ><input
-                id="urgencyUrgent"
-                type="radio"
-                name="urgency"
-                value="urgent"
-              /><span>Срочно</span></label
-            >
-          </fieldset>
-        </div>
-        <div class="modal__footer">
-          <button
-            id="remove"
-            class="button button--wide danger hidden"
-            type="button"
-          >
-            Удалить
-          </button>
-          <button id="save" class="button button--wide primary" type="button">
-            Добавить
-          </button>
-        </div>
+<div id="modal" class="modal hidden"><div class="card">
+  <h2 id="title">Новое задание</h2>
+  <label>Задание
+    <div id="chainFields" class="chain-fields">
+      <div class="chain-field">
+        <textarea class="chain-text" rows="3"></textarea>
       </div>
     </div>
+    <button id="addChain" class="chain-add" type="button"><span>＋</span> Добавить следующее задание</button>
+  </label>
+  <label>Повторение<select id="repeat"><option value="">Не повторять</option><option value="days">Через N дней после выполнения</option></select></label>
+  <label id="daysBox" class="hidden">Количество дней<input id="days" type="number" min="1" value="7"></label>
+  <fieldset class="urgency"><legend>Срочность</legend>
+    <label class="radio-option"><input id="urgencyNotUrgent" type="radio" name="urgency" value="not_urgent" checked><span>Не срочно</span></label>
+    <label class="radio-option"><input id="urgencyUrgent" type="radio" name="urgency" value="urgent"><span>Срочно</span></label>
+  </fieldset>
+  <div class="actions"><button id="cancel" type="button">Отмена</button><button id="remove" class="danger hidden" type="button">Удалить</button><button id="save" class="primary" type="button">Добавить</button></div>
+</div></div>
 
-    <div id="confirm" class="modal hidden">
-      <div class="modal__body">
-        <div class="modal__top">
-          <h2>Удалить задание?</h2>
-        </div>
-        <div class="modal__content">
-          <p>Это действие нельзя отменить.</p>
-        </div>
-        <div class="modal__footer">
-          <button class="button button--wide" id="no" type="button">
-            Отмена
-          </button>
-          <button id="yes" class="button button--wide danger" type="button">
-            Удалить
-          </button>
-        </div>
-      </div>
-    </div>
+<div id="confirm" class="modal hidden"><div class="card"><h2 id="confirmTitle">Удалить задание?</h2><p id="confirmText">Это действие нельзя отменить.</p><div class="actions"><button id="no" type="button">Отмена</button><button id="yes" class="danger" type="button">Удалить</button></div></div></div>
 
-    <div id="hist" class="modal hidden">
-      <div class="modal__body">
-        <div class="modal__top">
-          <h2>История</h2>
-          <button class="button" id="close" type="button" aria-label="Закрыть">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              class="icon"
-              viewBox="0 0 1024 1024"
-            >
-              <path
-                fill="#000000"
-                d="M195.2 195.2a64 64 0 0 1 90.496 0L512 421.504 738.304 195.2a64 64 0 0 1 90.496 90.496L602.496 512 828.8 738.304a64 64 0 0 1-90.496 90.496L512 602.496 285.696 828.8a64 64 0 0 1-90.496-90.496L421.504 512 195.2 285.696a64 64 0 0 1 0-90.496z"
-              />
-            </svg>
-          </button>
-        </div>
-        <div class="modal__content">
-          <ul class="list" id="historyList"></ul>
-        </div>
-        <div class="modal__footer">
-          <button
-            id="clearHistory"
-            class="button button--wide button--danger"
-            type="button"
-          >
-            Очистить историю
-          </button>
-        </div>
-      </div>
-    </div>
+<div id="hist" class="modal hidden"><div class="card"><div class="head"><h2>История</h2><button id="close" type="button" aria-label="Закрыть">×</button></div><div id="historyList"></div><div class="history-footer"><button id="clearHistory" class="danger-outline" type="button">Очистить историю</button></div></div></div>
 
-    <div id="periodicModal" class="modal hidden">
-      <div class="modal__body">
-        <div class="modal__top">
-          <h2>Периодические</h2>
-          <button class="button" id="closePeriodic" type="button" aria-label="Закрыть">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              class="icon"
-              viewBox="0 0 1024 1024"
-            >
-              <path
-                fill="#000000"
-                d="M195.2 195.2a64 64 0 0 1 90.496 0L512 421.504 738.304 195.2a64 64 0 0 1 90.496 90.496L602.496 512 828.8 738.304a64 64 0 0 1-90.496 90.496L512 602.496 285.696 828.8a64 64 0 0 1-90.496-90.496L421.504 512 195.2 285.696a64 64 0 0 1 0-90.496z"
-              />
-            </svg>
-          </button>
-        </div>
-        <div class="modal__content">
-          <ul class="list" id="periodicList"></ul>
-        </div>
-        <div class="modal__footer">
-          <button id="clearHistory" class="button button--danger button--wide" type="button">
-            Очистить историю
-          </button>
-        </div>
-      </div>
-    </div>
-    <script src="app.js"></script>
-  </body>
+<div id="periodicModal" class="modal hidden"><div class="card"><div class="head"><h2>Периодические</h2><button id="closePeriodic" type="button" aria-label="Закрыть">×</button></div><div id="periodicList"></div></div></div>
+<script src="app.js"></script>
+</body>
 </html>
