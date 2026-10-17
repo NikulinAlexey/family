@@ -1,0 +1,26 @@
+// Ключевые кадры и зарегистрированные свойства анимаций.
+@property --completion-angle {
+  syntax: "<angle>";
+  inherits: false;
+  initial-value: 0deg;
+}
+
+@keyframes chain-fill {
+  from {
+    width: 0;
+  }
+
+  to {
+    width: var(--chain-progress);
+  }
+}
+
+@keyframes completion-outline {
+  from {
+    --completion-angle: 0deg;
+  }
+
+  to {
+    --completion-angle: 360deg;
+  }
+}

@@ -3,71 +3,10 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Задания</title>
-<link rel="stylesheet" href="style.css">
+<title>Семья</title>
 </head>
-<body class="layout">
-<aside class="sidebar">
-  <div class="sidebar__brand" aria-hidden="true">
-    <span class="sidebar-line sidebar-line--1"></span>
-    <span class="sidebar-line sidebar-line--2"></span>
-    <span class="sidebar-line sidebar-line--3"></span>
-    <span class="sidebar-dot sidebar-dot--1"></span>
-    <span class="sidebar-dot sidebar-dot--2"></span>
-  </div>
-
-  <nav class="sidebar__nav" aria-label="Разделы">
-    <button class="sidebar-link" id="periodic" type="button">
-      <span class="sidebar-link__icon">↻</span><span>Периодические</span>
-    </button>
-    <button class="sidebar-link" id="history" type="button">
-      <span class="sidebar-link__icon">◷</span><span>История</span>
-    </button>
-  </nav>
-
-</aside>
-
-<div class="page">
-  <header class="header">
-    <div class="container header__inner">
-      <div>
-        <h1>Задания</h1>
-          </div>
-    </div>
-  </header>
-  <main class="layout__main"><div class="container">
-    <div id="loading" class="loading" aria-live="polite"><span class="spinner"></span><span>Загрузка</span></div>
-    <div id="list"></div>
-    <p id="empty" class="empty hidden">Заданий пока нет</p>
-    <button id="add" class="add" type="button"><span class="add__plus">＋</span> Добавить задание</button>
-  </div></main>
-</div>
-<footer class="footer"></footer>
-
-<div id="modal" class="modal hidden"><div class="card">
-  <h2 id="title">Новое задание</h2>
-  <label>Задание
-    <div id="chainFields" class="chain-fields">
-      <div class="chain-field">
-        <textarea class="chain-text" rows="3"></textarea>
-      </div>
-    </div>
-    <button id="addChain" class="chain-add" type="button"><span>＋</span> Добавить следующее задание</button>
-  </label>
-  <label>Повторение<select id="repeat"><option value="">Не повторять</option><option value="days">Через N дней после выполнения</option></select></label>
-  <label id="daysBox" class="hidden">Количество дней<input id="days" type="number" min="1" value="7"></label>
-  <fieldset class="urgency"><legend>Срочность</legend>
-    <label class="radio-option"><input id="urgencyNotUrgent" type="radio" name="urgency" value="not_urgent" checked><span>Не срочно</span></label>
-    <label class="radio-option"><input id="urgencyUrgent" type="radio" name="urgency" value="urgent"><span>Срочно</span></label>
-  </fieldset>
-  <div class="actions"><button id="cancel" type="button">Отмена</button><button id="remove" class="danger hidden" type="button">Удалить</button><button id="save" class="primary" type="button">Добавить</button></div>
-</div></div>
-
-<div id="confirm" class="modal hidden"><div class="card"><h2 id="confirmTitle">Удалить задание?</h2><p id="confirmText">Это действие нельзя отменить.</p><div class="actions"><button id="no" type="button">Отмена</button><button id="yes" class="danger" type="button">Удалить</button></div></div></div>
-
-<div id="hist" class="modal hidden"><div class="card"><div class="head"><h2>История</h2><button id="close" type="button" aria-label="Закрыть">×</button></div><div id="historyList"></div><div class="history-footer"><button id="clearHistory" class="danger-outline" type="button">Очистить историю</button></div></div></div>
-
-<div id="periodicModal" class="modal hidden"><div class="card"><div class="head"><h2>Периодические</h2><button id="closePeriodic" type="button" aria-label="Закрыть">×</button></div><div id="periodicList"></div></div></div>
-<script src="app.js"></script>
+<body>
+<div id="root"></div>
+<script type="module" src="/src/main.jsx"></script>
 </body>
 </html>

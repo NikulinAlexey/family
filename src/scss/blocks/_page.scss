@@ -1,0 +1,32 @@
+.page {
+  --page-grid-template-columns: auto minmax(0, 1fr);
+
+  width: 100vw;
+  height: 100dvh;
+  display: grid;
+  grid-template-columns: var(--page-grid-template-columns);
+  // Строка не превышает вьюпорт: переполнение уходит во внутренний скролл.
+  grid-template-rows: minmax(0, 1fr);
+}
+
+.page__content {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  min-height: 0;
+}
+
+.page__main {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  min-height: 0;
+}
+
+// Прокручивается только список — кнопка остаётся закреплённой внизу экрана.
+.page__scroll {
+  flex: 1;
+  min-height: 0;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+}

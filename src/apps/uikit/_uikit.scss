@@ -1,0 +1,54 @@
+// Стили витрины UI-кита (/ui-kit).
+.uikit {
+  padding-bottom: 48px;
+}
+
+.uikit__nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 8px;
+}
+
+.uikit__nav-link {
+  text-decoration: none;
+  color: var(--teal);
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  padding: 6px 14px;
+  font-size: 14px;
+  font-weight: 600;
+  transition: background .2s, border-color .2s;
+}
+
+.uikit__nav-link:hover {
+  background: var(--cream-2);
+  border-color: #d9cdbd;
+}
+
+.uikit__section {
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  padding: 22px;
+  margin-top: 16px;
+
+  h2 {
+    font-size: 22px;
+    margin-bottom: 4px;
+  }
+}
+
+.uikit__row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px;
+  margin-top: 14px;
+
+  // Кнопка добавления на витрине не на всю ширину.
+  .add {
+    max-width: 260px;
+  }
+}

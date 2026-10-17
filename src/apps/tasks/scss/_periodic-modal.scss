@@ -1,0 +1,102 @@
+.periodic-item {
+  padding: 12px 0;
+  border-bottom: 1px solid #e8e0d4;
+}
+
+.periodic-item:last-child {
+  border-bottom: 0;
+}
+
+.periodic-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.periodic-title {
+  font-size: 16px;
+  font-weight: 600;
+  color: #234d59;
+  line-height: 1.4;
+}
+
+.periodic-delete {
+  width: 34px;
+  height: 34px;
+  flex: 0 0 34px;
+  border: 0;
+  border-radius: 10px;
+  background: transparent;
+  color: #a95b5e;
+  font-size: 22px;
+  line-height: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.periodic-delete:hover {
+  background: #f3e2df;
+  color: #8f363a;
+}
+
+.periodic-info {
+  display: inline-block;
+  font-size: 12px;
+  color: #315e69;
+  background: #edf3f1;
+  border-radius: 999px;
+  padding: 3px 9px;
+  margin-top: 6px;
+}
+
+.periodic-dates {
+  list-style: none;
+  margin: 8px 0 0;
+  padding: 7px 11px;
+  background: #f7f3ea;
+  border-radius: 10px;
+}
+
+.periodic-dates li {
+  font-size: 13px;
+  padding: 3px 0;
+  color: #4d5d60;
+  border-bottom: 1px solid #e8e0d4;
+}
+
+.periodic-dates li:last-child {
+  border-bottom: 0;
+}
+
+.periodic-empty {
+  font-size: 13px;
+  color: #8a8277;
+  margin-top: 8px;
+  background: #f7f3ea;
+  border-radius: 10px;
+  padding: 8px 11px;
+}
+
+/* --- Окно «Периодические» --- */
+.modal--periodic .head h2 {
+  font-size: inherit;
+  letter-spacing: normal;
+}
+
+.modal--periodic .periodic-list {
+  max-height: 62vh;
+  overflow: auto;
+  padding-right: 2px;
+}
+
+.modal--periodic .periodic-list::-webkit-scrollbar {
+  width: 6px;
+}
+
+.modal--periodic .periodic-list::-webkit-scrollbar-thumb {
+  background: #d8cfc1;
+  border-radius: 10px;
+}

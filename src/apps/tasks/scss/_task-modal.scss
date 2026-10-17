@@ -1,0 +1,59 @@
+/* --- Цепочки заданий в модальном окне --- */
+.chain-fields {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 4px;
+}
+
+.chain-field {
+  position: relative;
+}
+
+.chain-field .chain-text {
+  margin-top: 0;
+  padding-right: 44px;
+}
+
+.chain-remove {
+  position: absolute;
+  right: 9px;
+  top: 9px;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: #eee7da;
+  color: #718086;
+  font-size: 22px;
+  line-height: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.chain-remove:hover {
+  background: #e4d8c7;
+  color: #b43d42;
+}
+
+.chain-add {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  margin-top: 10px;
+  background: transparent;
+  color: #236f76;
+  font-size: 14px;
+  font-weight: 700;
+  padding: 5px 0;
+}
+
+.chain-add span {
+  font-size: 20px;
+  line-height: 1;
+  font-weight: 400;
+}
+
+.chain-add:hover {
+  color: #174d5c;
+}

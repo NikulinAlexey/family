@@ -1,0 +1,5 @@
+// Стили приложения «Задачи» — подключаются только из TasksApp.jsx.
+@use 'task-list';
+@use 'task-modal';
+@use 'history-modal';
+@use 'periodic-modal';

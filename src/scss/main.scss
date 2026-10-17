@@ -1,0 +1,12 @@
+// Глобальные стили приложения (общая часть всех разделов).
+// Порядок важен: база -> формы -> модальные окна -> анимации -> layout.
+// Стили подприложений (tasks, uikit, ...) подключаются импортом из самих приложений.
+@use 'blocks/global';
+@use 'blocks/reset';
+@use 'blocks/forms';
+@use 'blocks/body';
+@use 'blocks/page';
+@use 'blocks/header';
+@use 'blocks/modal';
+@use 'blocks/animations';
+@use 'blocks/sidebar';

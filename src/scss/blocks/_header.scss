@@ -1,0 +1,45 @@
+@use 'variables' as *;
+
+.header {
+  width: 100%;
+  padding: 42px 0 26px;
+}
+
+.header .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+}
+
+// Зона действий справа в шапке раздела (например, кнопки «История»).
+.header__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.header-action {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--paper);
+  color: var(--teal);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  padding: 10px 16px;
+  font-size: 15px;
+  font-weight: 600;
+  transition: background .2s, border-color .2s;
+}
+
+.header-action:hover {
+  background: var(--cream-2);
+  border-color: #d9cdbd;
+}
+
+@include md {
+  .header {
+    padding: 25px 0 18px;
+  }
+}

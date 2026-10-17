@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Probe</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body class="layout">
+<aside class="sidebar">
+  <nav class="sidebar__nav" aria-label="Разделы">
+    <button class="sidebar-link" type="button"><span class="sidebar-link__icon">↻</span><span>Периодические</span></button>
+    <button class="sidebar-link" type="button"><span class="sidebar-link__icon">◷</span><span>История</span></button>
+  </nav>
+</aside>
+<div class="page">
+  <header class="header"><div class="container header__inner"><div><h1>Задания</h1></div></div></header>
+  <main class="layout__main"><div class="container">
+    <div id="list"></div>
+    <div class="add-bar">
+      <button id="add" class="add" type="button"><span class="add__plus">＋</span> Добавить задание</button>
+    </div>
+  </div></main>
+</div>
+<pre id="probe">pending</pre>
+<script>
+const list = document.getElementById('list');
+for (let i = 1; i <= 15; i++) {
+  const row = document.createElement('div');
+  row.className = 'task';
+  row.innerHTML = '<input type="checkbox"><span class="task-text">Задание номер ' + i + '</span>';
+  list.appendChild(row);
+}
+const bar = document.querySelector('.add-bar');
+const out = [];
+function snap(label) {
+  const r = bar.getBoundingClientRect();
+  const last = list.lastElementChild.getBoundingClientRect();
+  out.push(label + ': pos=' + getComputedStyle(bar).position +
+    ' bar=[' + Math.round(r.top) + '..' + Math.round(r.bottom) + ']' +
+    ' lastTaskBottom=' + Math.round(last.bottom) +
+    ' vh=' + window.innerHeight + ' vw=' + window.innerWidth +
+    ' scrollY=' + Math.round(window.scrollY));
+}
+snap('top');
+window.scrollTo(0, document.body.scrollHeight / 2);
+snap('mid');
+window.scrollTo(0, document.body.scrollHeight);
+setTimeout(() => { snap('end'); document.getElementById('probe').textContent = out.join('\n'); }, 300);
+</script>
+</body>
+</html>
