@@ -2,44 +2,49 @@
 
 .header {
   width: 100%;
-  padding: 42px 0 26px;
+  padding: var(--spacing-44) 0 var(--spacing-24);
 }
 
 .header .container {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  gap: 12px;
+  gap: var(--spacing-12);
 }
 
 // Зона действий справа в шапке раздела (например, кнопки «История»).
 .header__actions {
   display: flex;
   flex-wrap: wrap;
-  gap: 10px;
+  gap: var(--spacing-12);
 }
 
 .header-action {
   display: inline-flex;
   align-items: center;
-  gap: 8px;
-  background: var(--paper);
-  color: var(--teal);
-  border: 1px solid var(--line);
-  border-radius: 14px;
-  padding: 10px 16px;
-  font-size: 15px;
-  font-weight: 600;
+  gap: var(--spacing-8);
+  background: var(--color-surface-card);
+  color: var(--color-text-primary);
+  border: 1px solid var(--color-border-subtle);
+  border-radius: var(--radius-lg);
+  padding: var(--spacing-8) var(--spacing-16);
+  font-size: var(--button-sm-font-size-desktop);
+  line-height: var(--button-sm-line-height);
+  font-weight: var(--button-sm-font-weight);
   transition: background .2s, border-color .2s;
 }
 
 .header-action:hover {
-  background: var(--cream-2);
-  border-color: #d9cdbd;
+  background: var(--color-surface-subtle);
+  border-color: var(--color-border-hover);
 }
 
 @include md {
   .header {
-    padding: 25px 0 18px;
+    padding: var(--spacing-24) 0 var(--spacing-20);
+  }
+
+  .header-action {
+    font-size: var(--button-sm-font-size-mobile);
   }
 }
