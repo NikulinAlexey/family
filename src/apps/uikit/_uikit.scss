@@ -49,11 +49,6 @@
   align-items: center;
   gap: var(--spacing-12);
   margin-top: var(--spacing-16);
-
-  // Кнопка добавления на витрине не на всю ширину.
-  .add {
-    max-width: 260px;
-  }
 }
 
 @include md {

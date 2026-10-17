@@ -39,16 +39,7 @@
   margin-bottom: var(--spacing-20);
 }
 
-.head button {
-  background: none;
-  font-size: var(--icon-font-size-3xl);
-  color: var(--color-text-muted);
-  width: 48px;
-  height: 48px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
+// Крестик закрытия — общий Button (isSquare, variant ghost), см. blocks/button.
 
 @include sm {
   .card {

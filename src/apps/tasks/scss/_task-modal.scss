@@ -15,46 +15,15 @@
   padding-right: var(--spacing-44);
 }
 
+/* Крестик удаления поля — общий Button (isSquare, size sm, variant ghost).
+   Здесь только позиционирование поверх textarea. */
 .chain-remove {
   position: absolute;
   right: var(--spacing-8);
   top: var(--spacing-8);
-  width: 30px;
-  height: 30px;
-  border-radius: var(--radius-circle);
-  background: var(--color-surface-subtle);
-  color: var(--color-text-muted);
-  font-size: var(--icon-font-size-md);
-  line-height: var(--icon-line-height);
-  display: flex;
-  align-items: center;
-  justify-content: center;
 }
 
-.chain-remove:hover {
-  background: var(--color-surface-subtle-strong);
-  color: var(--color-text-danger);
-}
-
+/* «Добавить следующее задание» — общий Button (variant text), здесь только отступ. */
 .chain-add {
-  display: flex;
-  align-items: center;
-  gap: var(--spacing-8);
   margin-top: var(--spacing-12);
-  background: transparent;
-  color: var(--color-accent);
-  font-size: var(--label-font-size-desktop);
-  line-height: var(--label-line-height);
-  font-weight: var(--font-weight-bold);
-  padding: var(--spacing-4) 0;
-}
-
-.chain-add span {
-  font-size: var(--icon-font-size-sm);
-  line-height: var(--icon-line-height);
-  font-weight: var(--font-weight-regular);
-}
-
-.chain-add:hover {
-  color: var(--color-text-heading);
 }

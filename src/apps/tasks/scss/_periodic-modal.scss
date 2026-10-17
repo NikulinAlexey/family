@@ -23,26 +23,8 @@
   line-height: var(--card-title-line-height);
 }
 
-.periodic-delete {
-  width: 34px;
-  height: 34px;
-  flex: 0 0 34px;
-  border: 0;
-  border-radius: var(--radius-sm);
-  background: transparent;
-  color: var(--color-danger-muted);
-  font-size: var(--icon-font-size-md);
-  line-height: var(--icon-line-height);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-}
-
-.periodic-delete:hover {
-  background: var(--color-surface-danger-soft);
-  color: var(--color-danger-hover);
-}
+/* Кнопка удаления — общий Button (isSquare, size sm, variant danger-ghost),
+   см. scss/blocks/_button.scss. */
 
 .periodic-info {
   display: inline-block;

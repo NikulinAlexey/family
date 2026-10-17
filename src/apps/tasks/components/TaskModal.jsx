@@ -1,5 +1,7 @@
 import { useRef, useState } from "react";
 import Modal from "@/shared/ui/Modal.jsx";
+import Button from "@/shared/ui/Button.jsx";
+import Icon from "@/shared/ui/Icon.jsx";
 
 export default function TaskModal({ editTask, onSave, onCancel, onAskDelete }) {
   const isEdit = Boolean(editTask);
@@ -47,15 +49,15 @@ export default function TaskModal({ editTask, onSave, onCancel, onAskDelete }) {
       onClose={onCancel}
       footer={
         <>
-          <button type="button" onClick={onCancel}>Отмена</button>
+          <Button onClick={onCancel}>Отмена</Button>
           {isEdit && (
-            <button className="danger" type="button" onClick={onAskDelete}>
+            <Button variant="danger" onClick={onAskDelete}>
               Удалить
-            </button>
+            </Button>
           )}
-          <button className="primary" type="button" onClick={submit}>
+          <Button variant="primary" onClick={submit}>
             {saveLabel}
-          </button>
+          </Button>
         </>
       }
     >
@@ -73,22 +75,25 @@ export default function TaskModal({ editTask, onSave, onCancel, onAskDelete }) {
                 onChange={event => updateChainText(index, event.target.value)}
               />
               {index > 0 && (
-                <button
+                <Button
                   className="chain-remove"
-                  type="button"
+                  isSquare
+                  variant="ghost"
+                  size="sm"
                   title="Убрать это задание из цепочки"
+                  aria-label="Убрать это задание из цепочки"
                   onClick={() => removeChainField(index)}
                 >
-                  ×
-                </button>
+                  <Icon name="close" size={16} />
+                </Button>
               )}
             </div>
           ))}
         </div>
         {!isEdit && (
-          <button className="chain-add" type="button" onClick={addChainField}>
-            <span>＋</span> Добавить следующее задание
-          </button>
+          <Button className="chain-add" variant="text" onClick={addChainField}>
+            <Icon name="plus" size={16} /> Добавить следующее задание
+          </Button>
         )}
       </label>
 

@@ -2,6 +2,8 @@ import { useState } from "react";
 import Header from "@/shared/ui/Header.jsx";
 import Modal from "@/shared/ui/Modal.jsx";
 import ConfirmModal from "@/shared/ui/ConfirmModal.jsx";
+import Button from "@/shared/ui/Button.jsx";
+import Icon from "@/shared/ui/Icon.jsx";
 import "../_uikit.scss";
 
 // Витрина общего UI-кита (/ui-kit).
@@ -34,15 +36,37 @@ export default function UiKitPage() {
             <section className="uikit__section" id="buttons">
               <h2>Кнопки</h2>
               <div className="uikit__row">
-                <button className="primary" type="button">Primary</button>
-                <button className="danger" type="button">Danger</button>
-                <button className="danger-outline" type="button">Danger outline</button>
-                <button type="button">Обычная</button>
+                <Button>Обычная</Button>
+                <Button variant="primary">Primary</Button>
+                <Button variant="danger">Danger</Button>
+                <Button variant="danger-outline">Danger outline</Button>
+                <Button variant="ghost">Ghost</Button>
+                <Button variant="danger-ghost">Danger ghost</Button>
+                <Button variant="text">Текстовая</Button>
               </div>
               <div className="uikit__row">
-                <button className="add" type="button">
-                  <span className="add__plus">＋</span> Добавить
-                </button>
+                <Button variant="primary">
+                  <Icon name="plus" size={18} /> С иконкой
+                </Button>
+                <Button size="lg" variant="primary">
+                  <Icon name="plus" size={22} /> Крупная (lg)
+                </Button>
+                <Button size="sm">Малая (sm)</Button>
+              </div>
+              <div className="uikit__row">
+                <Button isSquare aria-label="Квадратная">
+                  <Icon name="plus" />
+                </Button>
+                <Button isSquare variant="ghost" aria-label="Квадратная ghost">
+                  <Icon name="close" />
+                </Button>
+                <Button isSquare size="sm" variant="danger-ghost" aria-label="Квадратная danger">
+                  <Icon name="delete" size={18} />
+                </Button>
+                <Button href="/tasks">Это ссылка с видом кнопки</Button>
+              </div>
+              <div className="uikit__row">
+                <Button wide variant="primary">На всю ширину (wide)</Button>
               </div>
             </section>
 
@@ -89,12 +113,12 @@ export default function UiKitPage() {
             <section className="uikit__section" id="modals">
               <h2>Модальные окна</h2>
               <div className="uikit__row">
-                <button className="primary" type="button" onClick={() => setDemoModal("modal")}>
+                <Button variant="primary" onClick={() => setDemoModal("modal")}>
                   Открыть Modal
-                </button>
-                <button className="danger" type="button" onClick={() => setDemoModal("confirm")}>
+                </Button>
+                <Button variant="danger" onClick={() => setDemoModal("confirm")}>
                   Открыть ConfirmModal
-                </button>
+                </Button>
               </div>
             </section>
           </div>
@@ -108,10 +132,10 @@ export default function UiKitPage() {
           overlayClosable
           footer={
             <>
-              <button type="button" onClick={() => setDemoModal(null)}>Закрыть</button>
-              <button className="primary" type="button" onClick={() => setDemoModal(null)}>
+              <Button onClick={() => setDemoModal(null)}>Закрыть</Button>
+              <Button variant="primary" onClick={() => setDemoModal(null)}>
                 Ок
-              </button>
+              </Button>
             </>
           }
         >

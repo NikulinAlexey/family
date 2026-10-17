@@ -1,6 +1,8 @@
 import { useState } from "react";
 import { NavLink } from "react-router";
 import { cn } from "@/shared/lib/cn";
+import Button from "@/shared/ui/Button.jsx";
+import Icon from "@/shared/ui/Icon.jsx";
 
 // Навигация по подприложениям общего приложения «Семья».
 // Каждый пункт — ссылка на раздел из реестра routes.jsx.
@@ -18,17 +20,18 @@ export default function Sidebar({ className }) {
   return (
     <aside className={cn(className, "sidebar", collapsed && "sidebar--collapsed")}>
       <div className="sidebar__container">
-        <button
+        <Button
           className="sidebar-burger"
-          type="button"
+          isSquare
+          variant="ghost"
           title={collapsed ? "Развернуть меню" : "Свернуть меню"}
           aria-label={collapsed ? "Развернуть меню" : "Свернуть меню"}
           aria-expanded={!collapsed}
           aria-controls="sidebar-nav"
           onClick={toggleSidebar}
         >
-          ☰
-        </button>
+          <Icon name="menu" />
+        </Button>
 
         <nav className="sidebar__nav" id="sidebar-nav" aria-label="Разделы">
           {NAV_ITEMS.map(item => (

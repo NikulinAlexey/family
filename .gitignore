@@ -2,3 +2,5 @@ node_modules
 dist
 *.local
 .DS_Store
+# Генерируется scripts/build-sprite.mjs при dev/билде
+src/shared/assets/icons.sprite.svg

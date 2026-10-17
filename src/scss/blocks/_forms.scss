@@ -83,44 +83,8 @@ select:disabled {
   margin-top: var(--spacing-24);
 }
 
-.primary {
-  background: var(--color-accent);
-  color: var(--color-text-on-accent);
-  border-radius: var(--radius-md);
-  font-size: var(--button-sm-font-size-desktop);
-  line-height: var(--button-sm-line-height);
-  font-weight: var(--button-sm-font-weight);
-  padding: var(--spacing-8) var(--spacing-16);
-}
-
-.primary:hover {
-  background: var(--color-accent-hover);
-}
-
-.danger {
-  background: var(--color-danger);
-  color: var(--color-text-on-accent);
-  border-radius: var(--radius-md);
-  font-size: var(--button-sm-font-size-desktop);
-  line-height: var(--button-sm-line-height);
-  font-weight: var(--button-sm-font-weight);
-  padding: var(--spacing-8) var(--spacing-16);
-}
-
-.danger:hover {
-  background: var(--color-danger-hover);
-}
-
-.danger-outline {
-  background: var(--color-surface-card);
-  color: var(--color-text-danger);
-  border: 1px solid var(--color-border-danger);
-  border-radius: var(--radius-md);
-  font-size: var(--button-sm-font-size-desktop);
-  line-height: var(--button-sm-line-height);
-  font-weight: var(--button-sm-font-weight);
-  padding: var(--spacing-8) var(--spacing-16);
-}
+// Стили кнопок (primary, danger, danger-outline и т.д.) живут в blocks/button —
+// единый компонент Button (src/shared/ui/Button.jsx) для кнопок и ссылок.
 
 @include md {
   label,
@@ -132,11 +96,5 @@ select:disabled {
   select,
   input[type=number] {
     font-size: var(--control-font-size-mobile);
-  }
-
-  .primary,
-  .danger,
-  .danger-outline {
-    font-size: var(--button-sm-font-size-mobile);
   }
 }
