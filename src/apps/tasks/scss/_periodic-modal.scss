@@ -1,6 +1,8 @@
+@use '../../../scss/blocks/variables' as *;
+
 .periodic-item {
-  padding: 12px 0;
-  border-bottom: 1px solid #e8e0d4;
+  padding: var(--spacing-12) 0;
+  border-bottom: 1px solid var(--color-border-subtle);
 }
 
 .periodic-item:last-child {
@@ -11,14 +13,14 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 12px;
+  gap: var(--spacing-12);
 }
 
 .periodic-title {
-  font-size: 16px;
-  font-weight: 600;
-  color: #234d59;
-  line-height: 1.4;
+  font-size: var(--card-title-font-size-desktop);
+  font-weight: var(--card-title-font-weight);
+  color: var(--color-text-primary);
+  line-height: var(--card-title-line-height);
 }
 
 .periodic-delete {
@@ -26,11 +28,11 @@
   height: 34px;
   flex: 0 0 34px;
   border: 0;
-  border-radius: 10px;
+  border-radius: var(--radius-sm);
   background: transparent;
-  color: #a95b5e;
-  font-size: 22px;
-  line-height: 1;
+  color: var(--color-danger-muted);
+  font-size: var(--icon-font-size-md);
+  line-height: var(--icon-line-height);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -38,33 +40,36 @@
 }
 
 .periodic-delete:hover {
-  background: #f3e2df;
-  color: #8f363a;
+  background: var(--color-surface-danger-soft);
+  color: var(--color-danger-hover);
 }
 
 .periodic-info {
   display: inline-block;
-  font-size: 12px;
-  color: #315e69;
-  background: #edf3f1;
-  border-radius: 999px;
-  padding: 3px 9px;
-  margin-top: 6px;
+  font-size: var(--tag-font-size-desktop);
+  line-height: var(--tag-line-height);
+  font-weight: var(--tag-font-weight);
+  color: var(--color-text-label);
+  background: var(--color-surface-accent-soft);
+  border-radius: var(--radius-full);
+  padding: var(--spacing-4) var(--spacing-8);
+  margin-top: var(--spacing-8);
 }
 
 .periodic-dates {
   list-style: none;
-  margin: 8px 0 0;
-  padding: 7px 11px;
-  background: #f7f3ea;
-  border-radius: 10px;
+  margin: var(--spacing-8) 0 0;
+  padding: var(--spacing-8) var(--spacing-12);
+  background: var(--color-surface-page);
+  border-radius: var(--radius-sm);
 }
 
 .periodic-dates li {
-  font-size: 13px;
-  padding: 3px 0;
-  color: #4d5d60;
-  border-bottom: 1px solid #e8e0d4;
+  font-size: var(--caption-font-size-desktop);
+  line-height: var(--caption-line-height);
+  padding: var(--spacing-4) 0;
+  color: var(--color-text-secondary);
+  border-bottom: 1px solid var(--color-border-subtle);
 }
 
 .periodic-dates li:last-child {
@@ -72,12 +77,13 @@
 }
 
 .periodic-empty {
-  font-size: 13px;
-  color: #8a8277;
-  margin-top: 8px;
-  background: #f7f3ea;
-  border-radius: 10px;
-  padding: 8px 11px;
+  font-size: var(--caption-font-size-desktop);
+  line-height: var(--caption-line-height);
+  color: var(--color-text-subtle);
+  margin-top: var(--spacing-8);
+  background: var(--color-surface-page);
+  border-radius: var(--radius-sm);
+  padding: var(--spacing-8) var(--spacing-12);
 }
 
 /* --- Окно «Периодические» --- */
@@ -86,10 +92,25 @@
   letter-spacing: normal;
 }
 
+@include md {
+  .periodic-title {
+    font-size: var(--card-title-font-size-mobile);
+  }
+
+  .periodic-info {
+    font-size: var(--tag-font-size-mobile);
+  }
+
+  .periodic-dates li,
+  .periodic-empty {
+    font-size: var(--caption-font-size-mobile);
+  }
+}
+
 .modal--periodic .periodic-list {
   max-height: 62vh;
   overflow: auto;
-  padding-right: 2px;
+  padding-right: var(--spacing-4);
 }
 
 .modal--periodic .periodic-list::-webkit-scrollbar {
@@ -97,6 +118,6 @@
 }
 
 .modal--periodic .periodic-list::-webkit-scrollbar-thumb {
-  background: #d8cfc1;
-  border-radius: 10px;
+  background: var(--color-scrollbar);
+  border-radius: var(--radius-sm);
 }

@@ -1,12 +1,245 @@
+// ============================================================
+// ДИЗАЙН-ТОКЕНЫ — единая система для всех подприложений
+// (задачи, рецепты, ui-kit и будущие разделы).
+//
+// Слои:
+//   1. CORE — сырые значения палитры. Используются ТОЛЬКО
+//      для определения семантических переменных ниже.
+//   2. SEMANTIC — смысловые цвета, привязанные к ролям и
+//      компонентам. Именно они используются в БЭМ-блоках.
+//   3. SPACING — отступы с шагом 4px (--spacing-N), используются
+//      в БЭМ-блоках напрямую.
+//   4. EFFECTS — тени, градиенты, оверлеи, кольца фокуса.
+// ============================================================
+
 :root {
-  --cream: #f7f3ea;
-  --cream-2: #eee7da;
-  --paper: #fffdfa;
-  --teal: #174d5c;
-  --teal-2: #276776;
-  --red: #b43d42;
-  --red-soft: #f1d8d5;
-  --beige: #e6c99f;
-  --line: #e5ddd0;
-  --muted: #718086;
+  /* ==================== 1. CORE COLORS ==================== */
+
+  /* Нейтральные: белые и бумажные */
+  --core-white: #ffffff;
+  --core-paper: #fffdfa;
+
+  /* Кремовые (фоны) */
+  --core-cream-50: #f7f3ea;   // фон страницы, подложки списков
+  --core-cream-100: #f1ebdf;  // верх градиента сайдбара
+  --core-cream-150: #f1ede6;  // фон disabled-элементов
+  --core-cream-200: #eee7da;  // низ градиента сайдбара, приглушённые поверхности
+  --core-cream-300: #e7dccb;  // активный пункт сайдбара
+
+  /* Песочные (границы, скроллбар) */
+  --core-sand-100: #e6ded3;
+  --core-sand-200: #e5ddd0;   // тонкие границы и разделители
+  --core-sand-300: #d9d0c4;   // границы полей ввода
+  --core-sand-400: #d9cdbd;   // граница при наведении
+  --core-sand-450: #e4d8c7;   // фон кнопки-крестика при наведении
+  --core-sand-500: #d8cfc1;   // полоса прокрутки
+
+  /* Teal (основной бренд) */
+  --core-teal-900: #174d5c;   // заголовки, основной текст
+  --core-teal-800: #1b6068;   // hover акцентных кнопок
+  --core-teal-700: #236f76;   // акцент: кнопки, чекбоксы, спиннер
+  --core-teal-600: #315762;   // подписи полей, мелкий акцентный текст
+  --core-teal-500: #4d5d60;   // вторичный текст (даты, списки)
+  --core-teal-400: #4f8790;   // рамка фокуса
+  --core-teal-100: #edf3f1;   // мягкая подложка акцента
+
+  /* Red (опасность, срочность) */
+  --core-red-700: #983338;    // hover опасных кнопок
+  --core-red-600: #b43d42;    // опасные действия
+  --core-red-500: #c85b5f;    // граница критической срочности
+  --core-red-400: #a95b5e;    // иконка удаления
+  --core-red-300: #d69a9c;    // граница danger-outline
+  --core-red-150: #f8dfdf;    // фон критической срочности
+  --core-red-100: #f3e2df;    // фон hover опасных иконок
+
+  /* Orange (предупреждающая срочность) */
+  --core-orange-500: #dfb477;
+  --core-orange-100: #fbecd9;
+
+  /* Серые тексты */
+  --core-gray-500: #718086;    // холодный muted
+  --core-warm-gray-400: #8a8277; // тёплый muted (пустые состояния, подписи)
+
+  /* ==================== 2. SEMANTIC COLORS ==================== */
+
+  /* Текст */
+  --color-text-heading: var(--core-teal-900);      // h1, h2
+  --color-text-primary: var(--core-teal-900);      // текст задач, полей, пунктов меню
+  --color-text-secondary: var(--core-teal-500);    // даты, вторичные подписи
+  --color-text-label: var(--core-teal-600);        // label, legend, иконка повтора
+  --color-text-muted: var(--core-gray-500);        // приглушённый (крестик в поле)
+  --color-text-subtle: var(--core-warm-gray-400);  // пустые состояния, small
+  --color-text-on-accent: var(--core-white);       // текст на акцентных кнопках
+  --color-text-danger: var(--core-red-600);
+  --color-danger-muted: var(--core-red-400);       // иконка удаления в списке
+
+  /* Поверхности */
+  --color-surface-page: var(--core-cream-50);
+  --color-surface-card: var(--core-paper);
+  --color-surface-input: var(--core-white);
+  --color-surface-subtle: var(--core-cream-200);   // disabled, hover мягких кнопок
+  --color-surface-subtle-strong: var(--core-sand-450); // hover крестика цепочки
+  --color-surface-accent-soft: var(--core-teal-100);
+  --color-surface-danger-soft: var(--core-red-100);
+  --color-surface-sidebar-active: var(--core-cream-300);
+  --color-surface-sidebar-hover: rgba(255, 253, 249, .5);
+
+  /* Границы */
+  --color-border-subtle: var(--core-sand-200);
+  --color-border-strong: var(--core-sand-300);
+  --color-border-hover: var(--core-sand-400);
+  --color-border-focus: var(--core-teal-400);
+  --color-border-sidebar: rgba(185, 169, 146, .16);
+  --color-border-danger: var(--core-red-300);
+
+  /* Акцент и опасные действия */
+  --color-accent: var(--core-teal-700);
+  --color-accent-hover: var(--core-teal-800);
+  --color-danger: var(--core-red-600);
+  --color-danger-hover: var(--core-red-700);
+
+  /* Срочность (задачи) */
+  --color-urgent-orange-bg: var(--core-orange-100);
+  --color-urgent-orange-border: var(--core-orange-500);
+  --color-urgent-red-bg: var(--core-red-150);
+  --color-urgent-red-border: var(--core-red-500);
+
+  /* Прогресс цепочек (полупрозрачные заливки) */
+  --color-chain-fill: rgba(35, 111, 118, .1);
+  --color-chain-fill-orange: rgba(223, 180, 119, .24);
+  --color-chain-fill-red: rgba(200, 91, 95, .2);
+
+  /* Прочее */
+  --color-scrollbar: var(--core-sand-500);
+
+  /* ==================== 3. SPACING (шаг 4px) ==================== */
+
+  --spacing-0: 0;
+  --spacing-4: 4px;
+  --spacing-8: 8px;
+  --spacing-12: 12px;
+  --spacing-16: 16px;
+  --spacing-20: 20px;
+  --spacing-24: 24px;
+  --spacing-28: 28px;
+  --spacing-32: 32px;
+  --spacing-36: 36px;
+  --spacing-44: 44px;
+  --spacing-48: 48px;
+  --spacing-64: 64px;
+  --spacing-72: 72px;
+
+  /* ==================== 4. RADIUS ==================== */
+
+  --radius-xs: 4px;
+  --radius-sm: 8px;      // мелкие блоки (подсписки, кнопки-иконки)
+  --radius-md: 12px;     // поля ввода, кнопки в формах
+  --radius-lg: 16px;     // карточки, пункты меню, шапочные кнопки
+  --radius-xl: 20px;     // крупные секции, крупные кнопки на мобильном
+  --radius-2xl: 24px;    // модальная карточка, кнопка «Добавить»
+  --radius-full: 999px;  // пилюли
+  --radius-circle: 50%;  // круги
+
+  /* ==================== 5. TYPOGRAPHY ==================== */
+
+  /* Ядрышко начертаний (как core-цвета — только для ролей ниже) */
+  --font-weight-light: 300;
+  --font-weight-regular: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
+  --font-weight-extrabold: 800;
+
+  /* Заголовок страницы (h1) */
+  --title-font-size-desktop: 54px;
+  --title-font-size-mobile: 39px;
+  --title-line-height: 1.05;
+  --title-font-weight: var(--font-weight-extrabold);
+  --title-letter-spacing: -1.8px;
+
+  /* Заголовок секции / модального окна (h2) */
+  --heading-font-size-desktop: 24px;
+  --heading-font-size-mobile: 24px;
+  --heading-line-height: 1.3;
+  --heading-font-weight: var(--font-weight-extrabold);
+
+  /* Базовый текст страницы (body) */
+  --body-font-size-desktop: 16px;
+  --body-font-size-mobile: 16px;
+  --body-line-height: 1.6;
+  --body-font-weight: var(--font-weight-regular);
+
+  /* Подписи полей и легенды (label, legend) */
+  --label-font-size-desktop: 14px;
+  --label-font-size-mobile: 14px;
+  --label-line-height: 1.4;
+  --label-font-weight: var(--font-weight-semibold);
+
+  /* Текст в полях ввода (textarea, select, input) */
+  --control-font-size-desktop: 16px;
+  --control-font-size-mobile: 16px;
+  --control-line-height: 1.4;
+  --control-font-weight: var(--font-weight-regular);
+
+  /* Основной текст контента (задачи, пункты меню) */
+  --text-font-size-desktop: 17px;
+  --text-font-size-mobile: 17px;
+  --text-line-height: 1.5;
+  --text-font-weight: var(--font-weight-regular);
+  --text-font-weight-strong: var(--font-weight-semibold);
+
+  /* Заголовок карточки в списке (periodic-title) */
+  --card-title-font-size-desktop: 16px;
+  --card-title-font-size-mobile: 16px;
+  --card-title-line-height: 1.4;
+  --card-title-font-weight: var(--font-weight-semibold);
+
+  /* Крупная кнопка («Добавить») */
+  --button-font-size-desktop: 18px;
+  --button-font-size-mobile: 18px;
+  --button-line-height: 1.2;
+  --button-font-weight: var(--font-weight-bold);
+
+  /* Компактная кнопка (header-action, кнопки модалок) */
+  --button-sm-font-size-desktop: 15px;
+  --button-sm-font-size-mobile: 15px;
+  --button-sm-line-height: 1.2;
+  --button-sm-font-weight: var(--font-weight-semibold);
+
+  /* Мелкий текст в подсписках (даты, пустые состояния) */
+  --caption-font-size-desktop: 13px;
+  --caption-font-size-mobile: 13px;
+  --caption-line-height: 1.4;
+  --caption-font-weight: var(--font-weight-regular);
+
+  /* Пилюли-теги (periodic-info) */
+  --tag-font-size-desktop: 12px;
+  --tag-font-size-mobile: 12px;
+  --tag-line-height: 1.4;
+  --tag-font-weight: var(--font-weight-regular);
+
+  /* Иконки-глифы (☰, ↻, ×, ⌫, +) — декоративный размер, не текст */
+  --icon-font-size-sm: 20px;
+  --icon-font-size-md: 22px;
+  --icon-font-size-lg: 25px;
+  --icon-font-size-xl: 27px;
+  --icon-font-size-2xl: 29px;
+  --icon-font-size-3xl: 30px;
+  --icon-line-height: 1;
+  --icon-font-weight: var(--font-weight-regular);
+
+  /* ==================== 6. EFFECTS ==================== */
+
+  /* Тени */
+  --shadow-sm: 0 2px 10px rgba(74, 63, 48, .05);           // карточки, активный пункт
+  --shadow-md: 0 5px 14px rgba(35, 111, 118, .16);         // акцентная кнопка «Добавить»
+  --shadow-lg: 0 12px 40px rgba(58, 47, 35, .14);          // модальная карточка
+  --shadow-top: 0 -12px 24px -16px rgba(74, 63, 48, .45);  // нижняя панель
+
+  /* Градиенты */
+  --gradient-sidebar: linear-gradient(180deg, var(--core-cream-100) 0%, var(--core-cream-200) 100%);
+
+  /* Оверлеи и кольца */
+  --overlay-modal: rgba(34, 52, 55, .42);
+  --focus-ring: 0 0 0 3px rgba(79, 135, 144, .15);
 }

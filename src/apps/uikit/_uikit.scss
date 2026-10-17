@@ -1,42 +1,45 @@
-// Стили витрины UI-кита (/ui-kit).
+@use '../../scss/blocks/variables' as *;
+
+// Стили витрины UI-кита (/ui-kit). Только токены из blocks/global.
 .uikit {
-  padding-bottom: 48px;
+  padding-bottom: var(--spacing-48);
 }
 
 .uikit__nav {
   display: flex;
   flex-wrap: wrap;
-  gap: 8px;
-  margin-bottom: 8px;
+  gap: var(--spacing-8);
+  margin-bottom: var(--spacing-8);
 }
 
 .uikit__nav-link {
   text-decoration: none;
-  color: var(--teal);
-  background: var(--paper);
-  border: 1px solid var(--line);
-  border-radius: 999px;
-  padding: 6px 14px;
-  font-size: 14px;
-  font-weight: 600;
+  color: var(--color-text-primary);
+  background: var(--color-surface-card);
+  border: 1px solid var(--color-border-subtle);
+  border-radius: var(--radius-full);
+  padding: var(--spacing-8) var(--spacing-16);
+  font-size: var(--label-font-size-desktop);
+  line-height: var(--label-line-height);
+  font-weight: var(--label-font-weight);
   transition: background .2s, border-color .2s;
 }
 
 .uikit__nav-link:hover {
-  background: var(--cream-2);
-  border-color: #d9cdbd;
+  background: var(--color-surface-subtle);
+  border-color: var(--color-border-hover);
 }
 
 .uikit__section {
-  background: var(--paper);
-  border: 1px solid var(--line);
-  border-radius: 18px;
-  padding: 22px;
-  margin-top: 16px;
+  background: var(--color-surface-card);
+  border: 1px solid var(--color-border-subtle);
+  border-radius: var(--radius-xl);
+  padding: var(--spacing-24);
+  margin-top: var(--spacing-16);
 
   h2 {
-    font-size: 22px;
-    margin-bottom: 4px;
+    font-size: var(--heading-font-size-desktop);
+    margin-bottom: var(--spacing-4);
   }
 }
 
@@ -44,11 +47,21 @@
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  gap: 12px;
-  margin-top: 14px;
+  gap: var(--spacing-12);
+  margin-top: var(--spacing-16);
 
   // Кнопка добавления на витрине не на всю ширину.
   .add {
     max-width: 260px;
+  }
+}
+
+@include md {
+  .uikit__nav-link {
+    font-size: var(--label-font-size-mobile);
+  }
+
+  .uikit__section h2 {
+    font-size: var(--heading-font-size-mobile);
   }
 }

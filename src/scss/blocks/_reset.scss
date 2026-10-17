@@ -1,4 +1,5 @@
 @use 'variables' as *;
+
 * {
   box-sizing: border-box;
   margin: 0;
@@ -12,10 +13,12 @@ body {
 
 body {
   margin: 0;
-  background: var(--cream);
-  color: var(--teal);
+  background: var(--color-surface-page);
+  color: var(--color-text-primary);
   font-family: 'Manrope', -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
-  line-height: 1.6;
+  font-size: var(--body-font-size-desktop);
+  line-height: var(--body-line-height);
+  font-weight: var(--body-font-weight);
 }
 
 button {
@@ -26,22 +29,24 @@ button {
 }
 
 h1 {
-  font-size: 54px;
-  line-height: 1.05;
-  font-weight: 800;
-  color: var(--teal);
-  letter-spacing: -1.8px;
+  font-size: var(--title-font-size-desktop);
+  line-height: var(--title-line-height);
+  font-weight: var(--title-font-weight);
+  color: var(--color-text-heading);
+  letter-spacing: var(--title-letter-spacing);
 }
 
 h2 {
-  font-weight: 800;
-  color: var(--teal);
+  font-size: var(--heading-font-size-desktop);
+  line-height: var(--heading-line-height);
+  font-weight: var(--heading-font-weight);
+  color: var(--color-text-heading);
 }
 
 .container {
   width: 100%;
   margin: 0 auto;
-  padding-inline: 42px;
+  padding-inline: var(--spacing-44);
   max-width: 1180px;
 }
 
@@ -49,26 +54,26 @@ h2 {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 12px;
-  color: #766f66;
-  padding: 42px 10px;
-  font-size: 16px;
-  font-weight: 500;
+  gap: var(--spacing-12);
+  color: var(--color-text-subtle);
+  padding: var(--spacing-44) var(--spacing-12);
+  font-size: var(--body-font-size-desktop);
+  font-weight: var(--font-weight-medium);
 }
 
 .spinner {
   width: 20px;
   height: 20px;
-  border: 2px solid #e6ded3;
-  border-top-color: #236f76;
-  border-radius: 50%;
+  border: 2px solid var(--color-border-subtle);
+  border-top-color: var(--color-accent);
+  border-radius: var(--radius-circle);
   animation: spin .8s linear infinite;
 }
 
 .empty {
   text-align: center;
-  color: #8a8277;
-  padding: 45px 10px;
+  color: var(--color-text-subtle);
+  padding: var(--spacing-44) var(--spacing-12);
   font-style: italic;
 }
 
@@ -79,21 +84,25 @@ h2 {
 }
 
 @include md {
+  body {
+    font-size: var(--body-font-size-mobile);
+  }
+
   .container {
-    padding-inline: 18px;
+    padding-inline: var(--spacing-20);
   }
 
   h1 {
-    font-size: 39px;
+    font-size: var(--title-font-size-mobile);
+  }
+
+  h2 {
+    font-size: var(--heading-font-size-mobile);
   }
 }
 
 @include sm {
   .container {
-    padding-inline: 14px;
-  }
-
-  h1 {
-    font-size: 34px;
+    padding-inline: var(--spacing-16);
   }
 }

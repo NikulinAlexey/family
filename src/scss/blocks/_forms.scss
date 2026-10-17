@@ -1,11 +1,15 @@
+@use 'variables' as *;
+
 // Поля формы, радиокнопки и кнопки действий модальных окон.
+// Цвета и отступы — только через токены (см. blocks/global).
 
 label {
   display: block;
-  font-size: 14px;
-  font-weight: 600;
-  margin: 16px 0 8px;
-  color: #315762;
+  font-size: var(--label-font-size-desktop);
+  line-height: var(--label-line-height);
+  font-weight: var(--label-font-weight);
+  margin: var(--spacing-16) 0 var(--spacing-8);
+  color: var(--color-text-label);
 }
 
 textarea,
@@ -13,14 +17,16 @@ select,
 input[type=number] {
   display: block;
   width: 100%;
-  margin-top: 4px;
-  padding: 14px;
-  border: 1px solid #d9d0c4;
-  border-radius: 12px;
+  margin-top: var(--spacing-4);
+  padding: var(--spacing-12);
+  border: 1px solid var(--color-border-strong);
+  border-radius: var(--radius-md);
   font: inherit;
-  background: #fff;
-  font-size: 16px;
-  color: #234d59;
+  font-size: var(--control-font-size-desktop);
+  line-height: var(--control-line-height);
+  font-weight: var(--control-font-weight);
+  background: var(--color-surface-input);
+  color: var(--color-text-primary);
 }
 
 textarea {
@@ -32,76 +38,105 @@ textarea:focus,
 select:focus,
 input[type=number]:focus {
   outline: none;
-  border-color: #4f8790;
-  box-shadow: 0 0 0 3px rgba(79, 135, 144, .15);
+  border-color: var(--color-border-focus);
+  box-shadow: var(--focus-ring);
 }
 
 select:disabled {
   opacity: .5;
   cursor: not-allowed;
-  background: #f1ede6;
+  background: var(--color-surface-subtle);
 }
 
 .urgency {
   border: 0;
-  margin-top: 16px;
+  margin-top: var(--spacing-16);
 }
 
 .urgency legend {
-  font-size: 14px;
-  font-weight: 600;
-  color: #315762;
-  margin-bottom: 8px;
+  font-size: var(--label-font-size-desktop);
+  line-height: var(--label-line-height);
+  font-weight: var(--label-font-weight);
+  color: var(--color-text-label);
+  margin-bottom: var(--spacing-8);
 }
 
 .radio-option {
   display: inline-flex;
   align-items: center;
-  gap: 7px;
-  margin: 0 18px 0 0;
-  font-weight: 400;
+  gap: var(--spacing-8);
+  margin: 0 var(--spacing-20) 0 0;
+  font-weight: var(--font-weight-regular);
   cursor: pointer;
 }
 
 .radio-option input {
   width: 18px;
   height: 18px;
-  accent-color: #236f76;
+  accent-color: var(--color-accent);
 }
 
 .actions {
   display: flex;
   justify-content: flex-end;
-  gap: 12px;
-  margin-top: 24px;
+  gap: var(--spacing-12);
+  margin-top: var(--spacing-24);
 }
 
 .primary {
-  background: #236f76;
-  color: #fff;
-  border-radius: 12px;
-  padding: 9px 15px;
+  background: var(--color-accent);
+  color: var(--color-text-on-accent);
+  border-radius: var(--radius-md);
+  font-size: var(--button-sm-font-size-desktop);
+  line-height: var(--button-sm-line-height);
+  font-weight: var(--button-sm-font-weight);
+  padding: var(--spacing-8) var(--spacing-16);
 }
 
 .primary:hover {
-  background: #1b6068;
+  background: var(--color-accent-hover);
 }
 
 .danger {
-  background: var(--red);
-  color: #fff;
-  border-radius: 12px;
-  padding: 9px 15px;
+  background: var(--color-danger);
+  color: var(--color-text-on-accent);
+  border-radius: var(--radius-md);
+  font-size: var(--button-sm-font-size-desktop);
+  line-height: var(--button-sm-line-height);
+  font-weight: var(--button-sm-font-weight);
+  padding: var(--spacing-8) var(--spacing-16);
 }
 
 .danger:hover {
-  background: #983338;
+  background: var(--color-danger-hover);
 }
 
 .danger-outline {
-  background: var(--paper);
-  color: var(--red);
-  border: 1px solid #d69a9c;
-  border-radius: 12px;
-  padding: 9px 15px;
+  background: var(--color-surface-card);
+  color: var(--color-text-danger);
+  border: 1px solid var(--color-border-danger);
+  border-radius: var(--radius-md);
+  font-size: var(--button-sm-font-size-desktop);
+  line-height: var(--button-sm-line-height);
+  font-weight: var(--button-sm-font-weight);
+  padding: var(--spacing-8) var(--spacing-16);
+}
+
+@include md {
+  label,
+  .urgency legend {
+    font-size: var(--label-font-size-mobile);
+  }
+
+  textarea,
+  select,
+  input[type=number] {
+    font-size: var(--control-font-size-mobile);
+  }
+
+  .primary,
+  .danger,
+  .danger-outline {
+    font-size: var(--button-sm-font-size-mobile);
+  }
 }

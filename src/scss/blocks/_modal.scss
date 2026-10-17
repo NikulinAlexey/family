@@ -5,11 +5,11 @@
 .modal {
   position: fixed;
   inset: 0;
-  background: rgba(34, 52, 55, .42);
+  background: var(--overlay-modal);
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 18px;
+  padding: var(--spacing-16);
   backdrop-filter: blur(4px);
   z-index: 1000;
   opacity: 0;
@@ -23,26 +23,26 @@
 }
 
 .card {
-  background: var(--paper);
+  background: var(--color-surface-card);
   width: min(500px, 100%);
   max-height: 90vh;
   overflow: auto;
-  border-radius: 22px;
-  padding: 24px;
-  box-shadow: 0 12px 40px rgba(58, 47, 35, .14);
+  border-radius: var(--radius-2xl);
+  padding: var(--spacing-24);
+  box-shadow: var(--shadow-lg);
 }
 
 .head {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 20px;
+  margin-bottom: var(--spacing-20);
 }
 
 .head button {
   background: none;
-  font-size: 30px;
-  color: #6f756f;
+  font-size: var(--icon-font-size-3xl);
+  color: var(--color-text-muted);
   width: 48px;
   height: 48px;
   display: flex;
@@ -52,6 +52,6 @@
 
 @include sm {
   .card {
-    padding: 20px;
+    padding: var(--spacing-20);
   }
 }

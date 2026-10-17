@@ -2,8 +2,8 @@
 .chain-fields {
   display: flex;
   flex-direction: column;
-  gap: 10px;
-  margin-top: 4px;
+  gap: var(--spacing-12);
+  margin-top: var(--spacing-4);
 }
 
 .chain-field {
@@ -12,48 +12,49 @@
 
 .chain-field .chain-text {
   margin-top: 0;
-  padding-right: 44px;
+  padding-right: var(--spacing-44);
 }
 
 .chain-remove {
   position: absolute;
-  right: 9px;
-  top: 9px;
+  right: var(--spacing-8);
+  top: var(--spacing-8);
   width: 30px;
   height: 30px;
-  border-radius: 50%;
-  background: #eee7da;
-  color: #718086;
-  font-size: 22px;
-  line-height: 1;
+  border-radius: var(--radius-circle);
+  background: var(--color-surface-subtle);
+  color: var(--color-text-muted);
+  font-size: var(--icon-font-size-md);
+  line-height: var(--icon-line-height);
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
 .chain-remove:hover {
-  background: #e4d8c7;
-  color: #b43d42;
+  background: var(--color-surface-subtle-strong);
+  color: var(--color-text-danger);
 }
 
 .chain-add {
   display: flex;
   align-items: center;
-  gap: 7px;
-  margin-top: 10px;
+  gap: var(--spacing-8);
+  margin-top: var(--spacing-12);
   background: transparent;
-  color: #236f76;
-  font-size: 14px;
-  font-weight: 700;
-  padding: 5px 0;
+  color: var(--color-accent);
+  font-size: var(--label-font-size-desktop);
+  line-height: var(--label-line-height);
+  font-weight: var(--font-weight-bold);
+  padding: var(--spacing-4) 0;
 }
 
 .chain-add span {
-  font-size: 20px;
-  line-height: 1;
-  font-weight: 400;
+  font-size: var(--icon-font-size-sm);
+  line-height: var(--icon-line-height);
+  font-weight: var(--font-weight-regular);
 }
 
 .chain-add:hover {
-  color: #174d5c;
+  color: var(--color-text-heading);
 }
