@@ -194,17 +194,22 @@
   --card-title-line-height: 1.4;
   --card-title-font-weight: var(--font-weight-semibold);
 
-  /* Крупная кнопка («Добавить») */
+  /* Крупная кнопка («Добавить», .btn--lg) */
   --button-font-size-desktop: 18px;
   --button-font-size-mobile: 18px;
   --button-line-height: 1.2;
   --button-font-weight: var(--font-weight-bold);
 
-  /* Компактная кнопка (header-action, кнопки модалок) */
+  /* Компактная кнопка (.btn, кнопки модалок) */
   --button-sm-font-size-desktop: 15px;
   --button-sm-font-size-mobile: 15px;
   --button-sm-line-height: 1.2;
   --button-sm-font-weight: var(--font-weight-semibold);
+
+  /* Квадратные кнопки-иконки (.btn--square / проп isSquare), стороны по размеру .btn */
+  --btn-square-size-sm: 32px;
+  --btn-square-size-md: 40px;
+  --btn-square-size-lg: 48px;
 
   /* Мелкий текст в подсписках (даты, пустые состояния) */
   --caption-font-size-desktop: 13px;

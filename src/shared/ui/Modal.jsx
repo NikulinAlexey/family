@@ -1,3 +1,6 @@
+import Button from "./Button.jsx";
+import Icon from "./Icon.jsx";
+
 // Универсальное модальное окно: оверлей + карточка с шапкой, контентом и футером.
 // - title — заголовок в шапке карточки;
 // - onClose — закрытие по крестику (если не передан — крестика нет);
@@ -21,7 +24,9 @@ export default function Modal({ title, onClose, overlayClosable = false, classNa
         <div className="head">
           <h2>{title}</h2>
           {onClose && (
-            <button type="button" aria-label="Закрыть" onClick={onClose}>×</button>
+            <Button isSquare variant="ghost" aria-label="Закрыть" onClick={onClose}>
+              <Icon name="close" />
+            </Button>
           )}
         </div>
 

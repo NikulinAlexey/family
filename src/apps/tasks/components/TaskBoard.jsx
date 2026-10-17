@@ -1,6 +1,8 @@
 import { useEffect, useMemo, useRef, useState } from "react";
 import TaskList from "./TaskList.jsx";
 import Modals from "./Modals.jsx";
+import Button from "@/shared/ui/Button.jsx";
+import Icon from "@/shared/ui/Icon.jsx";
 import { log, logError } from "@/shared/lib/log.js";
 import {
   Task,
@@ -330,9 +332,9 @@ export default function TaskBoard({
         {/* Кнопка закреплена у нижнего края экрана: список скроллится отдельно. */}
         <div className="add-bar">
           <div className="container">
-            <button className="add" type="button" onClick={openNewTask}>
-              <span className="add__plus">＋</span> Добавить задание
-            </button>
+            <Button wide size="lg" variant="primary" onClick={openNewTask}>
+              <Icon name="plus" size={22} /> Добавить задание
+            </Button>
           </div>
         </div>
       </main>

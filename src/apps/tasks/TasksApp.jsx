@@ -1,5 +1,7 @@
 import { useState } from "react";
 import Header from "@/shared/ui/Header.jsx";
+import Button from "@/shared/ui/Button.jsx";
+import Icon from "@/shared/ui/Icon.jsx";
 import TaskBoard from "./components/TaskBoard.jsx";
 import "./scss/tasks.scss";
 
@@ -15,12 +17,12 @@ export default function TasksApp() {
         title="Задачи"
         actions={
           <>
-            <button className="header-action" type="button" onClick={() => setPeriodicOpen(true)}>
-              <span aria-hidden="true">↻</span> Периодические
-            </button>
-            <button className="header-action" type="button" onClick={() => setHistoryOpen(true)}>
-              <span aria-hidden="true">◷</span> История
-            </button>
+            <Button onClick={() => setPeriodicOpen(true)}>
+              <Icon name="repeat" size={18} /> Периодические
+            </Button>
+            <Button onClick={() => setHistoryOpen(true)}>
+              <Icon name="clock" size={18} /> История
+            </Button>
           </>
         }
       />

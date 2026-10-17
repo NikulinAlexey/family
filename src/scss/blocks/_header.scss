@@ -19,32 +19,10 @@
   gap: var(--spacing-12);
 }
 
-.header-action {
-  display: inline-flex;
-  align-items: center;
-  gap: var(--spacing-8);
-  background: var(--color-surface-card);
-  color: var(--color-text-primary);
-  border: 1px solid var(--color-border-subtle);
-  border-radius: var(--radius-lg);
-  padding: var(--spacing-8) var(--spacing-16);
-  font-size: var(--button-sm-font-size-desktop);
-  line-height: var(--button-sm-line-height);
-  font-weight: var(--button-sm-font-weight);
-  transition: background .2s, border-color .2s;
-}
-
-.header-action:hover {
-  background: var(--color-surface-subtle);
-  border-color: var(--color-border-hover);
-}
+// Кнопки шапки — общий Button (blocks/button), здесь только отступы.
 
 @include md {
   .header {
     padding: var(--spacing-24) 0 var(--spacing-20);
-  }
-
-  .header-action {
-    font-size: var(--button-sm-font-size-mobile);
   }
 }

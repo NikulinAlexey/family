@@ -1,4 +1,5 @@
 import Modal from "./Modal.jsx";
+import Button from "./Button.jsx";
 
 export default function ConfirmModal({ title, text, onConfirm, onCancel }) {
   return (
@@ -7,8 +8,8 @@ export default function ConfirmModal({ title, text, onConfirm, onCancel }) {
       onClose={onCancel}
       footer={
         <>
-          <button type="button" onClick={onCancel}>Отмена</button>
-          <button className="danger" type="button" onClick={onConfirm}>Удалить</button>
+          <Button onClick={onCancel}>Отмена</Button>
+          <Button variant="danger" onClick={onConfirm}>Удалить</Button>
         </>
       }
     >

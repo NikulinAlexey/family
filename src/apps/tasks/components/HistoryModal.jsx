@@ -1,6 +1,7 @@
 import { MOCK_FAMILY_ID } from "../model/Task.js";
 import { formatDate } from "@/shared/lib/format.js";
 import Modal from "@/shared/ui/Modal.jsx";
+import Button from "@/shared/ui/Button.jsx";
 
 export default function HistoryModal({ history, onClose, onClear }) {
   const items = history
@@ -14,9 +15,9 @@ export default function HistoryModal({ history, onClose, onClear }) {
       overlayClosable
       className="modal--history"
       footer={
-        <button className="danger-outline" type="button" onClick={onClear}>
+        <Button variant="danger-outline" onClick={onClear}>
           Очистить историю
-        </button>
+        </Button>
       }
     >
       <div className="history-list">
