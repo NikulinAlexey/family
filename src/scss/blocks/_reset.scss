@@ -16,7 +16,7 @@ body {
   background: var(--color-surface-page);
   color: var(--color-text-primary);
   font-family: 'Manrope', -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
-  font-size: var(--body-font-size-desktop);
+  font-size: var(--body-font-size-mobile);
   line-height: var(--body-line-height);
   font-weight: var(--body-font-weight);
 }
@@ -29,7 +29,7 @@ button {
 }
 
 h1 {
-  font-size: var(--title-font-size-desktop);
+  font-size: var(--title-font-size-mobile);
   line-height: var(--title-line-height);
   font-weight: var(--title-font-weight);
   color: var(--color-text-heading);
@@ -37,7 +37,7 @@ h1 {
 }
 
 h2 {
-  font-size: var(--heading-font-size-desktop);
+  font-size: var(--heading-font-size-mobile);
   line-height: var(--heading-line-height);
   font-weight: var(--heading-font-weight);
   color: var(--color-text-heading);
@@ -46,7 +46,7 @@ h2 {
 .container {
   width: 100%;
   margin: 0 auto;
-  padding-inline: var(--spacing-44);
+  padding-inline: var(--spacing-16);
   max-width: 1180px;
 }
 
@@ -57,7 +57,7 @@ h2 {
   gap: var(--spacing-12);
   color: var(--color-text-subtle);
   padding: var(--spacing-44) var(--spacing-12);
-  font-size: var(--body-font-size-desktop);
+  font-size: var(--body-font-size-mobile);
   font-weight: var(--font-weight-medium);
 }
 
@@ -83,26 +83,31 @@ h2 {
   }
 }
 
-@include md {
-  body {
-    font-size: var(--body-font-size-mobile);
-  }
-
+@include sm {
   .container {
     padding-inline: var(--spacing-20);
   }
+}
+
+// Десктоп: база мобильная (mobile-first), здесь — увеличенные размеры.
+@include md {
+  body {
+    font-size: var(--body-font-size-desktop);
+  }
+
+  .container {
+    padding-inline: var(--spacing-44);
+  }
 
   h1 {
-    font-size: var(--title-font-size-mobile);
+    font-size: var(--title-font-size-desktop);
   }
 
   h2 {
-    font-size: var(--heading-font-size-mobile);
+    font-size: var(--heading-font-size-desktop);
   }
-}
 
-@include sm {
-  .container {
-    padding-inline: var(--spacing-16);
+  .loading {
+    font-size: var(--body-font-size-desktop);
   }
 }

@@ -1,16 +1,31 @@
-// Брейкпоинты и миксины проекта.
-// CSS-переменные (:root) объявлены в _base.scss.
-$bp-md: 800px;
-$bp-sm: 520px;
+// Брейкпоинты и миксины проекта (mobile-first: база — мобильные стили,
+// min-width-миксины поднимают размеры вверх).
+// CSS-переменные (:root) объявлены в _global.scss.
+$bp-sm: 648px;
+$bp-md: 768px;
+$bp-lg: 992px;
+$bp-xl: 1280px;
 
-@mixin md {
-  @media (max-width: $bp-md) {
+@mixin sm {
+  @media (min-width: $bp-sm) {
     @content;
   }
 }
 
-@mixin sm {
-  @media (max-width: $bp-sm) {
+@mixin md {
+  @media (min-width: $bp-md) {
+    @content;
+  }
+}
+
+@mixin lg {
+  @media (min-width: $bp-lg) {
+    @content;
+  }
+}
+
+@mixin xl {
+  @media (min-width: $bp-xl) {
     @content;
   }
 }

@@ -23,7 +23,7 @@
   background: var(--color-surface-card);
   color: var(--color-text-primary);
   font-family: inherit;
-  font-size: var(--button-sm-font-size-desktop);
+  font-size: var(--button-sm-font-size-mobile);
   line-height: var(--button-sm-line-height);
   font-weight: var(--button-sm-font-weight);
   text-align: center;
@@ -98,7 +98,7 @@
   border-color: transparent;
   color: var(--color-accent);
   padding: var(--spacing-4) 0;
-  font-size: var(--label-font-size-desktop);
+  font-size: var(--label-font-size-mobile);
   line-height: var(--label-line-height);
   font-weight: var(--font-weight-bold);
 }
@@ -116,11 +116,11 @@
 }
 
 .btn--lg {
-  min-height: var(--spacing-72);
+  min-height: var(--spacing-64);
   padding: var(--spacing-16) var(--spacing-32);
-  border-radius: var(--radius-2xl);
+  border-radius: var(--radius-xl);
   box-shadow: var(--shadow-md);
-  font-size: var(--button-font-size-desktop);
+  font-size: var(--button-font-size-mobile);
   line-height: var(--button-line-height);
   font-weight: var(--button-font-weight);
 }
@@ -133,6 +133,18 @@
 
 .btn--wide {
   width: 100%;
+}
+
+/* Модификатор шапки (header__actions): на мобильных — только иконка,
+   текст появляется с брейкпоинта md (mobile-first).
+   Текст в кнопке оборачивается в <span class="btn__label">; на мобильных
+   доступное имя кнопки задаётся через aria-label/title. */
+.btn--text-md {
+  padding: var(--spacing-8);
+}
+
+.btn--text-md .btn__label {
+  display: none;
 }
 
 .btn--square {
@@ -172,18 +184,28 @@
   cursor: not-allowed;
 }
 
+// Десктоп: база мобильная (mobile-first), здесь — увеличенные размеры.
 @include md {
   .btn {
-    font-size: var(--button-sm-font-size-mobile);
+    font-size: var(--button-sm-font-size-desktop);
   }
 
   .btn--text {
-    font-size: var(--label-font-size-mobile);
+    font-size: var(--label-font-size-desktop);
+  }
+
+  /* Текст кнопки-иконки появляется, отступы возвращаются к базовым .btn. */
+  .btn--text-md {
+    padding: var(--spacing-8) var(--spacing-16);
+  }
+
+  .btn--text-md .btn__label {
+    display: inline;
   }
 
   .btn--lg {
-    min-height: var(--spacing-64);
-    border-radius: var(--radius-xl);
-    font-size: var(--button-font-size-mobile);
+    min-height: var(--spacing-72);
+    border-radius: var(--radius-2xl);
+    font-size: var(--button-font-size-desktop);
   }
 }

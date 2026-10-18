@@ -43,7 +43,9 @@ export default function PeriodicModal({ tasks, onClose, onDelete }) {
               ) : (
                 <ul className="periodic-dates">
                   {dates.map((date, index) => (
-                    <li key={index}>✓ {formatDate(date)}</li>
+                    <li key={index}>
+                      <Icon name="check" size={14} /> {formatDate(date)}
+                    </li>
                   ))}
                 </ul>
               )}

@@ -52,6 +52,10 @@ export default function UiKitPage() {
                   <Icon name="plus" size={22} /> Крупная (lg)
                 </Button>
                 <Button size="sm">Малая (sm)</Button>
+                {/* btn--text-md: на мобиле только иконка, текст — с брейкпоинта md. */}
+                <Button className="btn--text-md" aria-label="С текстом с md">
+                  <Icon name="clock" size={18} /> <span className="btn__label">С текстом с md</span>
+                </Button>
               </div>
               <div className="uikit__row">
                 <Button isSquare aria-label="Квадратная">

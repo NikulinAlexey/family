@@ -19,7 +19,7 @@
   border: 1px solid var(--color-border-subtle);
   border-radius: var(--radius-full);
   padding: var(--spacing-8) var(--spacing-16);
-  font-size: var(--label-font-size-desktop);
+  font-size: var(--label-font-size-mobile);
   line-height: var(--label-line-height);
   font-weight: var(--label-font-weight);
   transition: background .2s, border-color .2s;
@@ -38,7 +38,7 @@
   margin-top: var(--spacing-16);
 
   h2 {
-    font-size: var(--heading-font-size-desktop);
+    font-size: var(--heading-font-size-mobile);
     margin-bottom: var(--spacing-4);
   }
 }
@@ -51,12 +51,13 @@
   margin-top: var(--spacing-16);
 }
 
+// Десктоп: база мобильная (mobile-first).
 @include md {
   .uikit__nav-link {
-    font-size: var(--label-font-size-mobile);
+    font-size: var(--label-font-size-desktop);
   }
 
   .uikit__section h2 {
-    font-size: var(--heading-font-size-mobile);
+    font-size: var(--heading-font-size-desktop);
   }
 }

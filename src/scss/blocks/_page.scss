@@ -1,5 +1,8 @@
+@use 'variables' as *;
+
 .page {
-  --page-grid-template-columns: auto minmax(0, 1fr);
+  // База (мобильные): контент на всю ширину — сайдбар выдвижной ящик поверх.
+  --page-grid-template-columns: minmax(0, 1fr);
 
   width: 100vw;
   height: 100dvh;
@@ -7,6 +10,11 @@
   grid-template-columns: var(--page-grid-template-columns);
   // Строка не превышает вьюпорт: переполнение уходит во внутренний скролл.
   grid-template-rows: minmax(0, 1fr);
+
+  // Десктоп: колонка сайдбара (auto = его ширина, 0 в схлопнутом виде).
+  @include md {
+    --page-grid-template-columns: auto minmax(0, 1fr);
+  }
 }
 
 .page__content {

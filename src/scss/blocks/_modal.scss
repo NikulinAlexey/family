@@ -28,7 +28,8 @@
   max-height: 90vh;
   overflow: auto;
   border-radius: var(--radius-2xl);
-  padding: var(--spacing-24);
+  // База (мобильные): компактные отступы, десктоп — в @include sm ниже.
+  padding: var(--spacing-20);
   box-shadow: var(--shadow-lg);
 }
 
@@ -41,8 +42,9 @@
 
 // Крестик закрытия — общий Button (isSquare, variant ghost), см. blocks/button.
 
+// Десктоп (>=648px): база мобильная (mobile-first).
 @include sm {
   .card {
-    padding: var(--spacing-20);
+    padding: var(--spacing-24);
   }
 }

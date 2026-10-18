@@ -27,6 +27,23 @@
   3. Добавить пункт в NAV_ITEMS в src/app/Sidebar.jsx.
   Общий переиспользуемый компонент — в src/shared/ui (+.demo на /ui-kit).
 
+БРЕЙКПОИНТЫ (src/scss/blocks/_variables.scss)
+=============================================
+Mobile-first: база — мобильные стили, min-width-миксины поднимают вверх:
+  @include sm — >=648px, @include md — >=768px,
+  @include lg — >=992px, @include xl — >=1280px.
+
+САЙДБАР (src/app/Sidebar.jsx, src/scss/blocks/_sidebar.scss)
+=============================================================
+Схлопывание по аналогии с DeepSeek, тумблер — бургер в шапке раздела
+(shared/ui/Header.jsx, состояние живёт в AppLayout):
+  1. Десктоп (>=768px): 270px <-> полное скрытие (width: 0, колонка layout
+     схлопывается, контент занимает всю ширину).
+  2. Мобильные (<768px): выдвижной ящик слева + затемнённая подложка;
+     закрытие — по подложке или после выбора раздела.
+  3. Выбор состояния хранится в localStorage (family:sidebar-collapsed);
+     без сохранённого выбора на десктопе сайдбар развёрнут, на мобилке — свёрнут.
+
 UI-КИТ
 ======
 Отдельная страница: /ui-kit. Показывает только компоненты из src/shared/,
@@ -43,8 +60,9 @@ UI-КИТ
   5. TYPOGRAPHY — ядрышко начертаний (--font-weight-*) + роли
      (title, heading, body, label, control, text, card-title, button,
      button-sm, caption, tag, icon): у каждой роли font-size-desktop/mobile,
-     line-height, font-weight. Мобильные размеры подключаются в @include md.
+     line-height, font-weight. Mobile-first: мобильные размеры — в базе, десктопные поднимаются в @include md (см. брейкпоинты выше).
   6. ЭФФЕКТЫ — тени (--shadow-*), градиент (--gradient-*), оверлеи и кольца.
+   7. LAYOUT — ширина сайдбара (--sidebar-width).
 Правило: новый hex-код, px-отступ, radius или размер шрифта в блоках
 запрещён — только токен. Заведите соответствующий токен в _global.scss.
 

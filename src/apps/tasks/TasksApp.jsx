@@ -17,11 +17,22 @@ export default function TasksApp() {
         title="Задачи"
         actions={
           <>
-            <Button onClick={() => setPeriodicOpen(true)}>
-              <Icon name="repeat" size={18} /> Периодические
+            {/* btn--text-md: на мобиле только иконка, текст — с брейкпоинта md. */}
+            <Button
+              className="btn--text-md"
+              aria-label="Периодические"
+              title="Периодические"
+              onClick={() => setPeriodicOpen(true)}
+            >
+              <Icon name="repeat" size={18} /> <span className="btn__label">Периодические</span>
             </Button>
-            <Button onClick={() => setHistoryOpen(true)}>
-              <Icon name="clock" size={18} /> История
+            <Button
+              className="btn--text-md"
+              aria-label="История"
+              title="История"
+              onClick={() => setHistoryOpen(true)}
+            >
+              <Icon name="clock" size={18} /> <span className="btn__label">История</span>
             </Button>
           </>
         }

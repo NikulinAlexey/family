@@ -2,14 +2,26 @@
 
 .header {
   width: 100%;
-  padding: var(--spacing-44) 0 var(--spacing-24);
+  // База (мобильные): компактные отступы, десктоп задаётся в @include md.
+  padding: var(--spacing-20) 0;
 }
 
-.header .container {
+.header__container {
   display: flex;
   justify-content: space-between;
   align-items: center;
   gap: var(--spacing-12);
+}
+
+// Заголовок растягивается между бургером слева и действиями справа.
+.header__title {
+  flex: 1;
+  min-width: 0;
+}
+
+// Бургер сайдбара — общий Button (isSquare, variant ghost), см. blocks/button.
+.header__sidebar-toggle {
+  flex: 0 0 auto;
 }
 
 // Зона действий справа в шапке раздела (например, кнопки «История»).
@@ -23,6 +35,6 @@
 
 @include md {
   .header {
-    padding: var(--spacing-24) 0 var(--spacing-20);
+    padding: var(--spacing-44) 0 var(--spacing-24);
   }
 }

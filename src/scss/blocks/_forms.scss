@@ -5,7 +5,7 @@
 
 label {
   display: block;
-  font-size: var(--label-font-size-desktop);
+  font-size: var(--label-font-size-mobile);
   line-height: var(--label-line-height);
   font-weight: var(--label-font-weight);
   margin: var(--spacing-16) 0 var(--spacing-8);
@@ -22,7 +22,7 @@ input[type=number] {
   border: 1px solid var(--color-border-strong);
   border-radius: var(--radius-md);
   font: inherit;
-  font-size: var(--control-font-size-desktop);
+  font-size: var(--control-font-size-mobile);
   line-height: var(--control-line-height);
   font-weight: var(--control-font-weight);
   background: var(--color-surface-input);
@@ -54,7 +54,7 @@ select:disabled {
 }
 
 .urgency legend {
-  font-size: var(--label-font-size-desktop);
+  font-size: var(--label-font-size-mobile);
   line-height: var(--label-line-height);
   font-weight: var(--label-font-weight);
   color: var(--color-text-label);
@@ -86,15 +86,16 @@ select:disabled {
 // Стили кнопок (primary, danger, danger-outline и т.д.) живут в blocks/button —
 // единый компонент Button (src/shared/ui/Button.jsx) для кнопок и ссылок.
 
+// Десктоп: база мобильная (mobile-first), здесь — увеличенные размеры.
 @include md {
   label,
   .urgency legend {
-    font-size: var(--label-font-size-mobile);
+    font-size: var(--label-font-size-desktop);
   }
 
   textarea,
   select,
   input[type=number] {
-    font-size: var(--control-font-size-mobile);
+    font-size: var(--control-font-size-desktop);
   }
 }

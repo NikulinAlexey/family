@@ -1,4 +1,5 @@
 import { getChain } from "../model/Task.js";
+import Icon from "@/shared/ui/Icon.jsx";
 
 function TaskRow({ task, allTasks, pending, onToggle, onEdit }) {
   const classNames = ["task"];
@@ -31,7 +32,7 @@ function TaskRow({ task, allTasks, pending, onToggle, onEdit }) {
           className="task-repeat-icon"
           title={`Повторяется каждые ${task.repeat_days} дн.`}
         >
-          ↻
+          <Icon name="repeat" size={18} />
         </span>
       ) : null}
     </div>

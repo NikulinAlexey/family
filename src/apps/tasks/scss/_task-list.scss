@@ -52,7 +52,7 @@
 }
 
 .task-text {
-  font-size: var(--text-font-size-desktop);
+  font-size: var(--text-font-size-mobile);
   line-height: var(--text-line-height);
   flex: 1;
   cursor: pointer;
@@ -61,16 +61,16 @@
   padding-right: var(--spacing-8);
 }
 
-/* Значок повтора всегда прижат вправо */
+/* Значок повтора всегда прижат вправо (SVG-иконка по центру ячейки) */
 .task-repeat-icon {
-  font-size: var(--icon-font-size-lg);
   color: var(--color-text-label);
-  line-height: var(--icon-line-height);
   flex: 0 0 30px;
   margin-left: auto;
   align-self: center;
   width: 30px;
-  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 /* --- Цепочки заданий --- */
@@ -143,8 +143,9 @@
   animation: completion-outline 4s linear forwards;
 }
 
+// Десктоп: база мобильная (mobile-first).
 @include md {
   .task-text {
-    font-size: var(--text-font-size-mobile);
+    font-size: var(--text-font-size-desktop);
   }
 }
